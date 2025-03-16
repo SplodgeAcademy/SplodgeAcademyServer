@@ -1,0 +1,13 @@
+<% content_for :title, "New writing" %>
+
+<div class="container">
+    <%# Heading %>
+    <h1>New writing</h1>
+
+    <%# New writing form %>
+    <%= render "form", writing: @writing %>
+    <br>
+
+    <%# Return to all writings %>
+    <div><%= link_to "Back to writings", writings_path %></div>
+</div>
