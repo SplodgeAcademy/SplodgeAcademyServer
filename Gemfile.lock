@@ -107,6 +107,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    doorkeeper (5.8.1)
+      railties (>= 5)
     drb (2.2.1)
     erubi (1.13.1)
     globalid (1.2.1)
@@ -184,6 +186,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.12)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -330,9 +334,11 @@ DEPENDENCIES
   capybara
   debug
   devise
+  doorkeeper (~> 5.8)
   importmap-rails
   jbuilder
   puma (>= 5.0)
+  rack-cors (~> 2.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
   selenium-webdriver

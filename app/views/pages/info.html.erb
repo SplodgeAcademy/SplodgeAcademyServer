@@ -1,4 +1,7 @@
 <div class="container">
     <h1>System Information</h1>
-    <%= link_to 'Home', root_path %>
+
+    <div>
+        <%= @application.as_json %>
+    </div>
 </div>
