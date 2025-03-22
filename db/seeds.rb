@@ -7,6 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+if Doorkeeper::Application.count.zero?
+    Doorkeeper::Application.create!(name: "React", redirect_uri: "", scopes: "")
+end
+
 User.create(email: "renn@example.com", name: "Renn", password: "password", password_confirmation: "password")
 
 10.times do |x|

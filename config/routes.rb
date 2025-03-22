@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    use_doorkeeper
+
     get "users/profile"
     get "/u/:id", to: "users#profile", as: "user"
 
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
     }
 
     resources :writings
+
+    draw :api
 
     get "info", to: "pages#info"
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
