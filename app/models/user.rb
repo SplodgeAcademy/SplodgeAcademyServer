@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
     has_many :writings
 
+    enum :level, [ :notSelected, :b1, :b2, :c1 ]
+
     # Authenticate method from doorkeeper
     def self.authenticate(email, password)
         user = User.find_for_authentication(email: email)

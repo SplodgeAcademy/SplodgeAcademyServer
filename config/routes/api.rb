@@ -7,6 +7,8 @@ namespace :api do
         resources :writings
 
         get "/users/me", to: "users#me"
+        put "users/updateInfo", to: "users#updateInfo"
+
     end
 end
 
