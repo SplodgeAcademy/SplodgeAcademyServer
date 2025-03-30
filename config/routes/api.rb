@@ -5,6 +5,8 @@ namespace :api do
         end
 
         resources :writings
+
+        get "/users/me", to: "users#me"
     end
 end
 
