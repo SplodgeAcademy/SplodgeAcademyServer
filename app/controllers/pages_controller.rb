@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     end
 
     def info
+        # Get information about current doorkeeper application
         @application = Doorkeeper::Application.find_by(name: "React")
 
         @application = {

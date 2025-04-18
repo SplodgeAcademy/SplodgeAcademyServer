@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 
     private
+    # Set User helper
     def set_user
         @user = User.find(params[:id])
     end
