@@ -1,0 +1,20 @@
+<div class="conversation-<%= writing_conversation.id %> container" 
+    style="border: 1px solid black; padding: 1em; margin-top: 1em;">
+
+    <%# Posters Name %>
+    <%= writing_conversation.user.name %><br />
+
+    <%# Time when posted %>
+    <span>Posted <%= time_ago_in_words(writing_conversation.created_at) %></span>
+
+    <%# Delete button if current user is poster %>
+    <% if current_user == writing_conversation.user %>
+        <div class="button-group float-end">
+            <%= button_to "Delete", [writing, writing_conversation], class:"btn btn-danger", method: :delete %>
+        </div>
+    <% end %>
+
+    <%# Comment Body %>
+    <hr />
+    <%= writing_conversation.body %>
+</div>

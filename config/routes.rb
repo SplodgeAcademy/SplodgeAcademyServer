@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
+    # Set up doorkeeper for api user access
     use_doorkeeper
 
+    # User Routes
     get "users/profile"
     get "/u/:id", to: "users#profile", as: "user"
 
+    # Devise Routes for Log In and Registration
     devise_for :users, controllers: {
         sessions: "users/sessions",
         registrations: "users/registrations"
     }
 
-    resources :writings
+    # Routes for writings
+    resources :writings do
+        resources :writing_conversations
+    end
 
+    # Draw API routes
     draw :api
 
+    # Pages
     get "info", to: "pages#info"
+
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

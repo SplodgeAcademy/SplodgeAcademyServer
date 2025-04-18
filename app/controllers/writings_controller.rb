@@ -9,6 +9,7 @@ class WritingsController < ApplicationController
 
     # GET /writings/1 or /writings/1.json
     def show
+        @writing_conversations = @writing.writing_conversations.order(created_at: :desc)
     end
 
     # GET /writings/new

@@ -4,10 +4,16 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+    # Validate Email
     validates :email, format: URI::MailTo::EMAIL_REGEXP
 
-    has_many :writings
+    # Link writings and set to delete when user destroyed
+    has_many :writings, dependent: :destroy
 
+    # Link conversations and set to delete when user destroyed
+    has_many :writing_conversations, dependent: :destroy
+
+    # Level currently studying
     enum :level, [ :notSelected, :b1, :b2, :c1 ]
 
     # Authenticate method from doorkeeper
