@@ -22,11 +22,27 @@ class WritingConversationsController < ApplicationController
 
     def destroy
         # Set writing conversation to be deleted
-        @writing_conversation = @writing.writing_conversations.find(oarams[:id])
+        @writing_conversation = @writing.writing_conversations.find(params[:id])
         # Delete conversation and redirect back to writing
         @writing_conversation.destroy
         redirect_to writing_path(@writing)
     end
+
+
+    def update
+        # Set writing conversation to be edited
+        @writing_conversation = @writing.writing_conversations.find(params[:id])
+
+        # Try to update conversation
+        respond_to do |format|
+            if @writing_conversation.update(writing_conversation_params)
+                format.html { redirect_to writing_url(@writing), notice: "Comment has been updated" }
+            else
+                format.html { redirect_to writing_url(@writing), alert: "Comment has not been updated" }
+            end
+        end
+    end
+
 
 
     private

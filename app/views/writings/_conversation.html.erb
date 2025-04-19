@@ -4,17 +4,37 @@
     <%# Posters Name %>
     <%= writing_conversation.user.name %><br />
 
-    <%# Time when posted %>
-    <span>Posted <%= time_ago_in_words(writing_conversation.created_at) %></span>
+    <%# Time when posted or updated %>
+    <% if (writing_conversation.updated_at - writing_conversation.created_at) > 1 %>
+        <span>Edited <%= time_ago_in_words(writing_conversation.updated_at) %> ago</span>
+    <% else %>
+        <span>Posted <%= time_ago_in_words(writing_conversation.created_at) %> ago</span>
+    <% end %>
 
-    <%# Delete button if current user is poster %>
     <% if current_user == writing_conversation.user %>
-        <div class="button-group float-end">
+        <%# Edit and Delete buttons if current user is poster %>
+        <div class="btn-group float-end">
+            <%= link_to 'Edit', nil, remote: true, class:"btn btn-warning",
+                data: {
+                    controller: "conversations",
+                    action: "conversations#toggleForm",
+                    conversations_form_param: "edit-form-#{writing_conversation.id}",
+                    conversations_body_param: "conversation-body-#{writing_conversation.id}"
+                }
+            %>
+
             <%= button_to "Delete", [writing, writing_conversation], class:"btn btn-danger", method: :delete %>
+        </div>
+
+        <%# Edit form - normally hidden %>
+        <div id="edit-form-<%= writing_conversation.id %>" class="d-none">
+            <%= render "conversationform", writing: @writing, writing_conversation: writing_conversation, submit_label: "Update" %>
         </div>
     <% end %>
 
     <%# Comment Body %>
     <hr />
-    <%= writing_conversation.body %>
+    <div id="conversation-body-<%= writing_conversation.id %>">
+        <%= writing_conversation.body %>
+    </div>
 </div>

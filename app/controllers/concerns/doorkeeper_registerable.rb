@@ -1,6 +1,7 @@
 module DoorkeeperRegisterable
     extend ActiveSupport::Concern
 
+    # Method for generating a refresh token
     def generate_refresh_token
         loop do
             # Generate a random token string and return it unless a token with same string already exists
@@ -9,6 +10,7 @@ module DoorkeeperRegisterable
         end
     end
 
+    # Method for rendering a User after it has been created
     def render_user(user, client_app, token_type = "Bearer")
         access_token = Doorkeeper::AccessToken.create(
             resource_owner_id: user.id,

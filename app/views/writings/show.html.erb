@@ -17,7 +17,7 @@
 
 <div class="container">
     <%# Form for new Conversation %>
-    <%= render "conversationform", writing: @writing %>
+    <%= render "conversationform", writing: @writing, writing_conversation: @writing.writing_conversations.build, submit_label: "Reply" %>
 
     <%# Display all conversations %>
     <% @writing_conversations.each do |writing_conversation| %>
