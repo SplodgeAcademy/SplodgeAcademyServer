@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # Pages
     get "info", to: "pages#info"
     get "/u/:id", to: "users#profile", as: "user"
+    get "search", to: "search#index"
 
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

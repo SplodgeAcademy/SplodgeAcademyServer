@@ -8,4 +8,13 @@ class Writing < ApplicationRecord
 
     # Link to conversations and set to delete when writing destroyed
     has_many :writing_conversations, dependent: :destroy
+
+    # Allowing attributes to be searched by ransack
+    def self.ransackable_attributes(auth_object = nil)
+        [ "body", "title" ]
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        [ "user" ]
+    end
 end
