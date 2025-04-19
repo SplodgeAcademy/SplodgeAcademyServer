@@ -1,0 +1,41 @@
+<div class="container">
+    <%# Heading %>
+    <h1 class="text-center">Administrator</h1>
+
+    <%# Admin links %>
+    <%= render 'admin/nav_links' %>
+
+    <%# Edit and Delete buttons %>
+    <div class="text-center mt-5">
+        <div class="btn-group">
+            <%= link_to 'Edit', edit_writing_path(@writing), class:"btn btn-warning" %>
+            <%= button_to "Delete", @writing, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+        </div>
+    </div>
+
+    <%# Title %>
+    <div class="row mt-1">
+        <p><strong>Title:</strong> <%= @writing.title %> </p>
+    </div>
+
+    <%# User name %>
+    <div class="row mt-1">
+        <p><strong>User:</strong> <%= @writing.user.name %> </p>
+    </div>
+
+    <%# Body %>
+    <div class="row mt-1">
+        <strong>Body:</strong> <%= @writing.body %>
+    </div>
+
+    <%# Conversations %>
+    <div class="row mt-1">
+        <strong><%= pluralize(@writing.writing_conversations.count, "Comment") %>:</strong>
+        <% @writing.writing_conversations.each do |writing_conversation| %>
+            <div class="row mt-1">
+                <%= writing_conversation.user.name %>
+                <%= writing_conversation.body %>
+            </div>
+        <% end %>
+    </div>
+</div>

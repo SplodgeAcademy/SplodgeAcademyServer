@@ -13,6 +13,9 @@ class User < ApplicationRecord
     # Link conversations and set to delete when user destroyed
     has_many :writing_conversations, dependent: :destroy
 
+    # User roles
+    enum :role, [ :user, :admin ]
+
     # Level currently studying
     enum :level, [ :notSelected, :b1, :b2, :c1 ]
 
@@ -25,5 +28,10 @@ class User < ApplicationRecord
     # Allowing attributes to be searched by ransack
     def self.ransackable_attributes(auth_object = nil)
         [ "email", "name" ]
+    end
+
+    # Allowing associations to be searched by ransack
+    def self.ransackable_associations(auth_object = nil)
+        []
     end
 end

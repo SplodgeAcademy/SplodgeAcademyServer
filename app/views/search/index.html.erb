@@ -1,23 +1,23 @@
-<%# Number of writing results %>
-<h1 class="text-center"><%= pluralize(@writings.count, "Result") %></h1>
+<%# Number of user results %>
+<h1 class="text-center"><%= pluralize(@users.count, "Result") %></h1>
 
 <%# Table of writings %>
 <div class="container">
     <table class="table table-dark table-striped">
         <thead>
             <tr>
-                <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
-                <th><%= sort_link(@query, :body, "Writing") %></th>
-                <th><%= sort_link(@query, :user_name, "User") %></th>
+                <th><%= sort_link(@query, :name, "Name", default_order: :asc) %></th>
+                <th><%= sort_link(@query, :email, "Email") %></th>
+                <th><%= sort_link(@query, :name, "Name") %></th>
             </tr>
         </thead>
 
         <tbody>
-            <% @writings.each do |writing| %>
+            <% @users.each do |user| %>
                 <tr>
-                    <td><%= link_to writing.title, writing %></td>
-                    <td><%= writing.body.truncate_words(25) %></td>
-                    <td><%= link_to writing.user.name, writing.user %></td>
+                    <td><%= link_to user.name, user %></td>
+                    <td><%= user.email %></td>
+                    <td><%= link_to user.name, user %></td>
                 </tr>
             <% end %>
         </tbody>
