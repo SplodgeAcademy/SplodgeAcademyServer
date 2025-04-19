@@ -21,4 +21,9 @@ class User < ApplicationRecord
         user = User.find_for_authentication(email: email)
         user&.valid_password?(password) ? user : nil
     end
+
+    # Allowing attributes to be searched by ransack
+    def self.ransackable_attributes(auth_object = nil)
+        [ "email", "name" ]
+    end
 end

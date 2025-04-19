@@ -14,12 +14,13 @@
     <% if current_user == writing_conversation.user %>
         <%# Edit and Delete buttons if current user is poster %>
         <div class="btn-group float-end">
-            <%= link_to 'Edit', nil, remote: true, class:"btn btn-warning",
+            <%= link_to 'Edit', nil, remote: true, class:"btn btn-warning", id:"edit-button-#{writing_conversation.id}",
                 data: {
                     controller: "conversations",
                     action: "conversations#toggleForm",
                     conversations_form_param: "edit-form-#{writing_conversation.id}",
-                    conversations_body_param: "conversation-body-#{writing_conversation.id}"
+                    conversations_body_param: "conversation-body-#{writing_conversation.id}",
+                    conversations_edit_param: "edit-button-#{writing_conversation.id}"
                 }
             %>
 

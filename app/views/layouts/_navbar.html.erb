@@ -25,8 +25,11 @@
                 </li>
             </ul>
 
-            <%# Dropdown Menu %>
             <ul class="navbar-nav">
+                <%# Searchbar %>
+                <%= render "search/form" %>
+
+                <%# Dropdown Menu %>
                 <%= render 'user/session_manager' %>
             </ul>
         </div>
