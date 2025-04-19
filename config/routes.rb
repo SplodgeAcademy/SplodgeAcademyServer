@@ -2,10 +2,6 @@ Rails.application.routes.draw do
     # Set up doorkeeper for api user access
     use_doorkeeper
 
-    # User Routes
-    get "users/profile"
-    get "/u/:id", to: "users#profile", as: "user"
-
     # Devise Routes for Log In and Registration
     devise_for :users, controllers: {
         sessions: "users/sessions",
@@ -22,6 +18,7 @@ Rails.application.routes.draw do
 
     # Pages
     get "info", to: "pages#info"
+    get "/u/:id", to: "users#profile", as: "user"
 
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
