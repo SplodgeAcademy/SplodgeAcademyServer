@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
 
     # Helper method to store query term from search bar
     def set_query
-        @query = Writing.ransack(params[:q])
+        @query = User.ransack(params[:q])
     end
 end

@@ -21,6 +21,14 @@ Rails.application.routes.draw do
     get "/u/:id", to: "users#profile", as: "user"
     get "search", to: "search#index"
 
+    # Admin routes
+    authenticated :user, ->(user) { user.admin? } do
+        get "admin", to: "admin#index"
+        get "admin/writings"
+        get "admin/users"
+        get "admin/show_writing/:id", to: "admin#show_writing", as: "admin_writing"
+    end
+
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

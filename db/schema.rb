@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_18_184251) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_19_203623) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -87,6 +87,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_18_184251) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "level", default: 0
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -102,7 +103,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_18_184251) do
 
   create_table "writings", force: :cascade do |t|
     t.string "title"
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
