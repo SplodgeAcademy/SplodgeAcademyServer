@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_20_155649) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_155649) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "multiple_choices", force: :cascade do |t|
+    t.string "question"
+    t.string "optionA"
+    t.string "optionB"
+    t.string "optionC"
+    t.string "optionD"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "problem_id", null: false
+    t.index ["problem_id"], name: "index_multiple_choices_on_problem_id"
+  end
+
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.integer "resource_owner_id"
     t.integer "application_id", null: false
@@ -77,6 +90,31 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_155649) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "open_clozes", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "problem_id", null: false
+    t.index ["problem_id"], name: "index_open_clozes_on_problem_id"
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sentence_transformations", force: :cascade do |t|
+    t.string "question"
+    t.string "prompt"
+    t.string "answer"
+    t.string "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "problem_id", null: false
+    t.index ["problem_id"], name: "index_sentence_transformations_on_problem_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,6 +128,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_155649) do
     t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "word_formations", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.string "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "problem_id", null: false
+    t.index ["problem_id"], name: "index_word_formations_on_problem_id"
   end
 
   create_table "writing_conversations", force: :cascade do |t|
@@ -112,7 +160,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_155649) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "multiple_choices", "problems"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "open_clozes", "problems"
+  add_foreign_key "sentence_transformations", "problems"
+  add_foreign_key "word_formations", "problems"
   add_foreign_key "writing_conversations", "users"
   add_foreign_key "writing_conversations", "writings"
   add_foreign_key "writings", "users"

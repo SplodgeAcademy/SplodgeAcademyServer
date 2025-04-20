@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Word formations</h1>
+
+    <div id="word_formations">
+        <% @word_formations.each do |word_formation| %>
+            <%# Word Formation %>
+            <%= render word_formation %>
+
+            <%# Link to Word Formation %>
+            <p><%= link_to "Show this word formation", word_formation %></p>
+        <% end %>
+    </div>
+
+    <%# New Word Formation %>
+    <%= link_to "New word formation", new_word_formation_path %>
+</div>

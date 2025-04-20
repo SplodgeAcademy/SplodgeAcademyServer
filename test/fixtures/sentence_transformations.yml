@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  prompt: MyString
+  answer: MyString
+  keyword: MyString
+
+two:
+  question: MyString
+  prompt: MyString
+  answer: MyString
+  keyword: MyString

@@ -1,0 +1,8 @@
+<%= render @multiple_choice %>
+
+<div>
+  <%= link_to "Edit this multiple choice", edit_multiple_choice_path(@multiple_choice) %> |
+  <%= link_to "Back to multiple choices", multiple_choices_path %>
+
+  <%= button_to "Destroy this multiple choice", @multiple_choice, method: :delete %>
+</div>

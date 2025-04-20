@@ -12,4 +12,7 @@ class PagesController < ApplicationController
             client_secret: @application.secret
         }
     end
+
+    def problems
+    end
 end

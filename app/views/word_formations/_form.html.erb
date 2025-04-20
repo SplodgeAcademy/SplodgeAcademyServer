@@ -1,0 +1,37 @@
+<%= form_with(model: word_formation) do |form| %>
+    <%# Handles errors %>
+    <% if word_formation.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(word_formation.errors.count, "error") %> prohibited this word_formation from being saved:</h2>
+
+            <ul>
+                <% word_formation.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Question Input %>
+    <div>
+        <%= form.label :question, style: "display: block" %>
+        <%= form.text_field :question %>
+    </div>
+
+    <%# Answer Input %>
+    <div>
+        <%= form.label :answer, style: "display: block" %>
+        <%= form.text_field :answer %>
+    </div>
+
+    <%# Keyword Input %>
+    <div>
+        <%= form.label :keyword, style: "display: block" %>
+        <%= form.text_field :keyword %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

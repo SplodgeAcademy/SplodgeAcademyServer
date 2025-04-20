@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing sentence transformation</h1>
+
+    <%# Edit Sentence Transformation Form %>
+    <%= render "form", sentence_transformation: @sentence_transformation %>
+    <br>
+    
+    <%# Links %>
+    <div>
+        <%= link_to "Show this sentence transformation", @sentence_transformation %> |
+        <%= link_to "Back to sentence transformations", sentence_transformations_path %>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Multiple choices</h1>
+
+    <div id="multiple_choices">
+        <% @multiple_choices.each do |multiple_choice| %>
+            <%# Multiple Choice %>
+            <%= render multiple_choice %>
+
+            <%# Link to Multiple Choice %>
+            <p><%= link_to "Show this multiple choice", multiple_choice %></p>
+        <% end %>
+    </div>
+
+    <%# New Multiple Choice %>
+    <%= link_to "New multiple choice", new_multiple_choice_path %>
+</div>
