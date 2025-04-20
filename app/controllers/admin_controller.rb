@@ -3,13 +3,13 @@ class AdminController < ApplicationController
     end
 
     def writings
-        @writings = Writing.all.includes(:user, :writing_conversations)
+        @writings = Writing.all.includes(:user)
     end
 
     def users
     end
 
     def show_writing
-        @writing = Writing.includes(:user, :writing_conversations).find(params[:id])
+        @writing = Writing.includes(:user, writing_conversations: [ :user, :rich_text_body ]).find(params[:id])
     end
 end

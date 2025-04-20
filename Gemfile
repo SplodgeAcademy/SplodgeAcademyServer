@@ -63,3 +63,5 @@ gem "doorkeeper", "~> 5.8"
 gem "rack-cors", "~> 2.0"
 
 gem "ransack", "~> 4.3"
+
+gem "bullet", "~> 8.0"
