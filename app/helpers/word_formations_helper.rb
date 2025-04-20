@@ -1,0 +1,2 @@
+module WordFormationsHelper
+end

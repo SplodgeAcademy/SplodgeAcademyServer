@@ -1,0 +1,31 @@
+<%= form_with(model: open_cloze) do |form| %>
+    <%# Handles errors %>
+    <% if open_cloze.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(open_cloze.errors.count, "error") %> prohibited this open_cloze from being saved:</h2>
+
+            <ul>
+                <% open_cloze.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Question Input %>
+    <div>
+        <%= form.label :question, style: "display: block" %>
+        <%= form.text_field :question %>
+    </div>
+
+    <%# Answer Input %>
+    <div>
+        <%= form.label :answer, style: "display: block" %>
+        <%= form.text_field :answer %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

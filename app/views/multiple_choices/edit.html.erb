@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing multiple choice</h1>
+
+    <%# Edit Multiple Choice Form %>
+    <%= render "form", multiple_choice: @multiple_choice %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this multiple choice", @multiple_choice %> |
+        <%= link_to "Back to multiple choices", multiple_choices_path %>
+    </div>
+</div>

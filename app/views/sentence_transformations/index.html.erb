@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Sentence transformations</h1>
+
+    <div id="sentence_transformations">
+        <% @sentence_transformations.each do |sentence_transformation| %>
+            <%# Sentence Transformation %>
+            <%= render sentence_transformation %>
+
+            <%# Link to Sentence Transformation %>
+            <p><%= link_to "Show this sentence transformation", sentence_transformation %></p>
+        <% end %>
+    </div>
+
+    <%# New Sentence Transformation %>
+    <%= link_to "New sentence transformation", new_sentence_transformation_path %>
+</div>

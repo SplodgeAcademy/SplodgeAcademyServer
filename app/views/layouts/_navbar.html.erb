@@ -11,17 +11,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <%# Links %>
+                <%# Home Link %>
                 <li class="nav-item">
                     <%= link_to 'Home', root_path, class:'nav-link' %>
                 </li>
 
+                <%# Info Page Link %>
                 <li class="nav-item">
                     <%= link_to 'Info', info_path, class:'nav-link' %>
                 </li>
 
+                <%# Writings Link %>
                 <li class="nav-item">
                     <%= link_to 'Writings', writings_path, class: 'nav-link' %>
+                </li>
+
+                <%# Problems Link %>
+                <li class="nav-item">
+                    <%= link_to 'Problems', problems_path, class: 'nav-link' %>
                 </li>
             </ul>
 

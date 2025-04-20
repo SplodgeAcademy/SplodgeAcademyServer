@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Open clozes</h1>
+
+    <div id="open_clozes">
+        <% @open_clozes.each do |open_cloze| %>
+            <%# Open Cloze %>
+            <%= render open_cloze %>
+
+            <%# Link to Open Cloze %>
+            <p><%= link_to "Show this open cloze", open_cloze %></p>
+        <% end %>
+    </div>
+
+    <%# New Open Cloze %>
+    <%= link_to "New open cloze", new_open_cloze_path %>
+</div>

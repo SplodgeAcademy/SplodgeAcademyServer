@@ -20,6 +20,13 @@ Rails.application.routes.draw do
     get "info", to: "pages#info"
     get "/u/:id", to: "users#profile", as: "user"
     get "search", to: "search#index"
+    get "problems", to: "pages#problems"
+
+    # Problem Links
+    resources :word_formations
+    resources :sentence_transformations
+    resources :open_clozes
+    resources :multiple_choices
 
     # Admin routes
     authenticated :user, ->(user) { user.admin? } do

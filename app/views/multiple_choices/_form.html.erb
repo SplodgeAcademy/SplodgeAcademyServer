@@ -1,0 +1,55 @@
+<%= form_with(model: multiple_choice) do |form| %>
+    <%# Handles errors %>
+    <% if multiple_choice.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(multiple_choice.errors.count, "error") %> prohibited this multiple_choice from being saved:</h2>
+
+            <ul>
+                <% multiple_choice.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Question Input %>
+    <div>
+        <%= form.label :question, style: "display: block" %>
+        <%= form.text_field :question %>
+    </div>
+
+    <%# Option A Input %>
+    <div>
+        <%= form.label "Option A", style: "display: block" %>
+        <%= form.text_field :optionA %>
+    </div>
+
+    <%# Option B Input %>
+    <div>
+        <%= form.label "Option B", style: "display: block" %>
+        <%= form.text_field :optionB %>
+    </div>
+
+    <%# Option C Input %>
+    <div>
+        <%= form.label "Option C", style: "display: block" %>
+        <%= form.text_field :optionC %>
+    </div>
+
+    <%# Option D Input %>
+    <div>
+        <%= form.label "Option D", style: "display: block" %>
+        <%= form.text_field :optionD %>
+    </div>
+
+    <%# Answer Input %>
+    <div>
+        <%= form.label :answer, style: "display: block" %>
+        <%= form.text_field :answer %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

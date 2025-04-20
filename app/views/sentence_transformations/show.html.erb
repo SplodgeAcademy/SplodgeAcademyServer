@@ -1,0 +1,8 @@
+<%= render @sentence_transformation %>
+
+<div>
+  <%= link_to "Edit this sentence transformation", edit_sentence_transformation_path(@sentence_transformation) %> |
+  <%= link_to "Back to sentence transformations", sentence_transformations_path %>
+
+  <%= button_to "Destroy this sentence transformation", @sentence_transformation, method: :delete %>
+</div>

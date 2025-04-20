@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing word formation</h1>
+
+    <%# Edit Word Formation Form %>
+    <%= render "form", word_formation: @word_formation %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this word formation", @word_formation %> |
+        <%= link_to "Back to word formations", word_formations_path %>
+    </div>
+</div>
