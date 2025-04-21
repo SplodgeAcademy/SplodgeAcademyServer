@@ -1,12 +1,14 @@
-<%# Essay %>
-<%= render @essay %>
+<div class="container">
+    <%# Essay %>
+    <%= render @essay %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this essay", edit_essay_path(@essay) %> |
-    <%# Return Link %>
-    <%= link_to "Back to essays", essays_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this essay", edit_essay_path(@essay) %> |
+        <%# Return Link %>
+        <%= link_to "Back to essays", essays_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this essay", @essay, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this essay", @essay, method: :delete %>
+    </div>
 </div>

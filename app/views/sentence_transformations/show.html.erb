@@ -1,12 +1,14 @@
-<%# Sentence Transformation %>
-<%= render @sentence_transformation %>
+<div class="container">
+    <%# Sentence Transformation %>
+    <%= render @sentence_transformation %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this sentence transformation", edit_sentence_transformation_path(@sentence_transformation) %> |
-    <%# Return Link %>
-    <%= link_to "Back to sentence transformations", sentence_transformations_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this sentence transformation", edit_sentence_transformation_path(@sentence_transformation) %> |
+        <%# Return Link %>
+        <%= link_to "Back to sentence transformations", sentence_transformations_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this sentence transformation", @sentence_transformation, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this sentence transformation", @sentence_transformation, method: :delete %>
+    </div>
 </div>

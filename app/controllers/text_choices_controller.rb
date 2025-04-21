@@ -8,6 +8,7 @@ class TextChoicesController < ApplicationController
 
     # GET /text_choices/1 or /text_choices/1.json
     def show
+        @reading_questions = @text_choice.reading.reading_questions
     end
 
     # GET /text_choices/new

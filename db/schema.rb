@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_20_225616) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_21_162040) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -132,6 +132,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_225616) do
   create_table "prompts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reading_questions", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.string "optionA"
+    t.string "optionB"
+    t.string "optionC"
+    t.string "optionD"
+    t.integer "reading_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_reading_questions_on_reading_id"
   end
 
   create_table "readings", force: :cascade do |t|
@@ -260,6 +273,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_225616) do
   add_foreign_key "multiple_choices", "problems"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "open_clozes", "problems"
+  add_foreign_key "reading_questions", "readings"
   add_foreign_key "reports", "prompts"
   add_foreign_key "reviews", "prompts"
   add_foreign_key "sentence_transformations", "problems"

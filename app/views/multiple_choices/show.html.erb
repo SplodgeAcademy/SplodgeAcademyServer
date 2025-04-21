@@ -1,12 +1,14 @@
-<%# Multiple Choice %>
-<%= render @multiple_choice %>
+<div class="container">
+    <%# Multiple Choice %>
+    <%= render @multiple_choice %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this multiple choice", edit_multiple_choice_path(@multiple_choice) %> |
-    <%# Return Link %>
-    <%= link_to "Back to multiple choices", multiple_choices_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this multiple choice", edit_multiple_choice_path(@multiple_choice) %> |
+        <%# Return Link %>
+        <%= link_to "Back to multiple choices", multiple_choices_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this multiple choice", @multiple_choice, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this multiple choice", @multiple_choice, method: :delete %>
+    </div>
 </div>

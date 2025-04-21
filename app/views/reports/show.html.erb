@@ -1,12 +1,14 @@
-<%# Report %>
-<%= render @report %>
+<div class="container">
+    <%# Report %>
+    <%= render @report %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this report", edit_report_path(@report) %> |
-    <%# Return Link %>
-    <%= link_to "Back to reports", reports_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this report", edit_report_path(@report) %> |
+        <%# Return Link %>
+        <%= link_to "Back to reports", reports_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this report", @report, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this report", @report, method: :delete %>
+    </div>
 </div>

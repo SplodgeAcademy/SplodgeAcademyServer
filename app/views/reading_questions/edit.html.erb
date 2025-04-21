@@ -1,0 +1,12 @@
+<% content_for :title, "Editing reading question" %>
+
+<h1>Editing reading question</h1>
+
+<%= render "form", reading_question: @reading_question %>
+
+<br>
+
+<div>
+  <%= link_to "Show this reading question", @reading_question %> |
+  <%= link_to "Back to reading questions", reading_questions_path %>
+</div>
