@@ -17,11 +17,60 @@ end
 User.create(email: "renn@example.com", name: "Renn", role: User.roles[:admin], password: "password", password_confirmation: "password")
 User.create(email: "test@example.com", name: "Test", password: "password", password_confirmation: "password")
 
-# Create test writings and conversations
-10.times do |x|
-    writing = Writing.create(title: "Title #{x + 1}", body: "Body #{x + 1} words go here IDK", user_id: User.first.id)
 
-    5.times do |y|
-        WritingConversation.create(body: "Comment #{y}", user_id: User.second.id, writing_id: writing.id)
+# Create test prompts, writings and conversations
+3.times do |x|
+    prompt = Prompt.create(prompt_type: Prompt.prompt_types[:essayType])
+
+    essay = Essay.create(situation: "Situation #{x + 1}", task: "Task #{x + 1}", note1: "Note #{x + 1}", note2: "Note #{x + 1}", prompt: prompt)
+
+    2.times do |y|
+        writing = Writing.create(body: "Body #{y + 1} words go here IDK", user_id: User.first.id, prompt: essay.prompt)
+
+        2.times do |z|
+            WritingConversation.create(body: "Comment #{z}", user_id: User.second.id, writing_id: writing.id)
+        end
+    end
+end
+
+3.times do |x|
+    prompt = Prompt.create(prompt_type: Prompt.prompt_types[:articleType])
+
+    article = Article.create(title: "Title #{x + 1}", task: "Task #{x + 1}",  prompt: prompt)
+
+    2.times do |y|
+        writing = Writing.create(body: "Body #{y + 1} words go here IDK", user_id: User.first.id, prompt: article.prompt)
+
+        2.times do |z|
+            WritingConversation.create(body: "Comment #{z}", user_id: User.second.id, writing_id: writing.id)
+        end
+    end
+end
+
+3.times do |x|
+    prompt = Prompt.create(prompt_type: Prompt.prompt_types[:reportType])
+
+    report = Report.create(situation: "Situation #{x + 1}", task: "Task #{x + 1}",  prompt: prompt)
+
+    2.times do |y|
+        writing = Writing.create(body: "Body #{y + 1} words go here IDK", user_id: User.first.id, prompt: report.prompt)
+
+        2.times do |z|
+            WritingConversation.create(body: "Comment #{z}", user_id: User.second.id, writing_id: writing.id)
+        end
+    end
+end
+
+3.times do |x|
+    prompt = Prompt.create(prompt_type: Prompt.prompt_types[:reviewType])
+
+    review = Review.create(title: "Title #{x + 1}", task: "Task #{x + 1}",  prompt: prompt)
+
+    2.times do |y|
+        writing = Writing.create(body: "Body #{y + 1} words go here IDK", user_id: User.first.id, prompt: review.prompt)
+
+        2.times do |z|
+            WritingConversation.create(body: "Comment #{z}", user_id: User.second.id, writing_id: writing.id)
+        end
     end
 end

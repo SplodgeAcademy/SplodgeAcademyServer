@@ -23,9 +23,9 @@
         <%= essay.note2 %>
     </p>
 
-    <%# Prompt %>
+    <%# Number of Writings %>
     <p>
-        <strong>Prompt:</strong>
-        <%= essay.prompt_id %>
+        <strong>Number of Writings:</strong>
+        <%= pluralize(essay.prompt.writings.size, "Writing") %>
     </p>
 </div>

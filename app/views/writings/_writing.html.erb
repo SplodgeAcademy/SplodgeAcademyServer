@@ -1,10 +1,26 @@
 <div id="<%= dom_id writing %>">
-    <%# Writing Title %>
-    <h2><%= writing.title %></h2>
+    <%# Prompt Link %>
+    <h2><%= 'Essay' if writing.prompt.essayType? %></h2>
+    <h2><%= 'Article' if writing.prompt.articleType? %></h2>
+    <h2><%= 'Review' if writing.prompt.reviewType? %></h2>
+    <h2><%= 'Report' if writing.prompt.reportType? %></h2>
 
     <%# Author %>
     <h4>Written by: <%= link_to writing.user.name, user_path(writing.user) %></h4>
+
+    <%# Grade %>
+    <% if writing.corrected? %>
+        <h4>Grade: <%= writing.grade %></h4>
+    <% else %>
+        <h4>Not Corrected</h4>
+    <% end %>
     
     <%# Writing Body %>
     <div><%= writing.body %></div>
+
+    <%# Number of Conversations %>
+    <div>Number of Conversations: <%= pluralize(writing.writing_conversations.size, "Comments") %></div>
+
+    <%# Link to writing %>
+    <p><%= link_to "Show this writing", writing %></p>
 </div>

@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th scope="col1">Id</th>
-                <th scope="col1">Writing</th>
                 <th scope="col1">Author</th>
                 <th scope="col1">Conversations</th>
             </tr>
@@ -19,8 +18,7 @@
         <tbody>
             <% @writings.each do |writing| %>
                 <tr>
-                    <th scope="row"><%= writing.id %></th>
-                    <td><%= link_to writing.title.truncate(15), admin_writing_path(writing) %></td>
+                    <th scope="row"><%= link_to writing.id, admin_writing_path(writing) %></th>
                     <td><%= writing.user.name %></td>
                     <td><%= pluralize(writing.writing_conversations.size, "Comments")  %></td>
                 </tr>

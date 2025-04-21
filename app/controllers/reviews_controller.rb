@@ -3,11 +3,12 @@ class ReviewsController < ApplicationController
 
     # GET /reviews or /reviews.json
     def index
-        @reviews = Review.all
+        @reviews = Review.all.includes([ :prompt ])
     end
 
     # GET /reviews/1 or /reviews/1.json
     def show
+        @writings = @review.prompt.writings.includes([ :rich_text_body, :user ])
     end
 
     # GET /reviews/new
@@ -25,6 +26,7 @@ class ReviewsController < ApplicationController
 
         # Create new prompt and associate it with new review
         @prompt = Prompt.new()
+        @prompt.prompt_type = Prompt.prompt_types[:review]
         @review.prompt = @prompt
 
         respond_to do |format|

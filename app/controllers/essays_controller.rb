@@ -3,11 +3,12 @@ class EssaysController < ApplicationController
 
     # GET /essays or /essays.json
     def index
-        @essays = Essay.all
+        @essays = Essay.all.includes([ :prompt ])
     end
 
     # GET /essays/1 or /essays/1.json
     def show
+        @writings = @essay.prompt.writings.includes([ :rich_text_body, :user ])
     end
 
     # GET /essays/new
@@ -25,6 +26,7 @@ class EssaysController < ApplicationController
 
         # Create new prompt and associate it with new essay
         @prompt = Prompt.new()
+        @prompt.prompt_type = Prompt.prompt_types[:essay]
         @essay.prompt = @prompt
 
         respond_to do |format|

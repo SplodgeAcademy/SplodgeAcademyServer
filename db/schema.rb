@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_21_162040) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_21_200829) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -132,6 +132,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_21_162040) do
   create_table "prompts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type"
+    t.integer "prompt_type"
+    t.integer "writings_count"
   end
 
   create_table "reading_questions", force: :cascade do |t|
@@ -258,11 +261,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_21_162040) do
   end
 
   create_table "writings", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.integer "writing_conversations_count"
+    t.integer "prompt_id", null: false
+    t.integer "state", default: 0
+    t.integer "grade", default: 0
+    t.index ["prompt_id"], name: "index_writings_on_prompt_id"
     t.index ["user_id"], name: "index_writings_on_user_id"
   end
 
@@ -283,5 +289,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_21_162040) do
   add_foreign_key "word_formations", "problems"
   add_foreign_key "writing_conversations", "users"
   add_foreign_key "writing_conversations", "writings"
+  add_foreign_key "writings", "prompts"
   add_foreign_key "writings", "users"
 end

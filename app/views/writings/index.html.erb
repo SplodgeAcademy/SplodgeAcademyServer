@@ -1,17 +1,11 @@
 <div class="container">
     <%# Heading %>
-    <h1>Writings</h1>
+    <h1>Writings:</h1>
 
     <div id="writings">
         <% @writings.each do |writing| %>
             <%# Writing %>
             <%= render writing %>
-
-            <%# Link to writing %>
-            <p><%= link_to "Show this writing", writing %></p>
         <% end %>
     </div>
-
-    <%# New writing link %>
-    <%= link_to "New writing", new_writing_path %>
 </div>
