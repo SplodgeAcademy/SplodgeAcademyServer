@@ -1,0 +1,43 @@
+<%= form_with(model: essay) do |form| %>
+    <%# Handles errors %>
+    <% if essay.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(essay.errors.count, "error") %> prohibited this essay from being saved:</h2>
+
+            <ul>
+                <% essay.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Situation Input %>
+    <div>
+        <%= form.label :situation, style: "display: block" %>
+        <%= form.textarea :situation %>
+    </div>
+
+    <%# Task Input %>
+    <div>
+        <%= form.label :task, style: "display: block" %>
+        <%= form.textarea :task %>
+    </div>
+
+    <%# Note 1 Input %>
+    <div>
+        <%= form.label :note1, style: "display: block" %>
+        <%= form.text_field :note1 %>
+    </div>
+
+    <%# Note 2 Input %>
+    <div>
+        <%= form.label :note2, style: "display: block" %>
+        <%= form.text_field :note2 %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

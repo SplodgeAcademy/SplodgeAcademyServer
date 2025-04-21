@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_20_225616) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -47,6 +47,31 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "task"
+    t.integer "prompt_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prompt_id"], name: "index_articles_on_prompt_id"
+  end
+
+  create_table "essays", force: :cascade do |t|
+    t.text "situation"
+    t.text "task"
+    t.string "note1"
+    t.string "note2"
+    t.integer "prompt_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prompt_id"], name: "index_essays_on_prompt_id"
+  end
+
+  create_table "listenings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "multiple_choices", force: :cascade do |t|
@@ -104,6 +129,34 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "prompts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "readings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text "situation"
+    t.text "task"
+    t.integer "prompt_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prompt_id"], name: "index_reports_on_prompt_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "task"
+    t.integer "prompt_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prompt_id"], name: "index_reviews_on_prompt_id"
+  end
+
   create_table "sentence_transformations", force: :cascade do |t|
     t.string "question"
     t.string "prompt"
@@ -113,6 +166,48 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
     t.datetime "updated_at", null: false
     t.integer "problem_id", null: false
     t.index ["problem_id"], name: "index_sentence_transformations_on_problem_id"
+  end
+
+  create_table "text_choices", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.text "body"
+    t.integer "reading_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_text_choices_on_reading_id"
+  end
+
+  create_table "text_matchings", force: :cascade do |t|
+    t.string "title"
+    t.text "para1"
+    t.text "para2"
+    t.text "para3"
+    t.text "para4"
+    t.string "sub1"
+    t.string "sub2"
+    t.string "sub3"
+    t.string "sub4"
+    t.integer "reading_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_text_matchings_on_reading_id"
+  end
+
+  create_table "text_missings", force: :cascade do |t|
+    t.string "title"
+    t.string "optionA"
+    t.string "optionB"
+    t.string "optionC"
+    t.string "optionD"
+    t.string "optionE"
+    t.string "optionF"
+    t.string "optionG"
+    t.text "body"
+    t.integer "reading_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_text_missings_on_reading_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -160,10 +255,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_20_183726) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "articles", "prompts"
+  add_foreign_key "essays", "prompts"
   add_foreign_key "multiple_choices", "problems"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "open_clozes", "problems"
+  add_foreign_key "reports", "prompts"
+  add_foreign_key "reviews", "prompts"
   add_foreign_key "sentence_transformations", "problems"
+  add_foreign_key "text_choices", "readings"
+  add_foreign_key "text_matchings", "readings"
+  add_foreign_key "text_missings", "readings"
   add_foreign_key "word_formations", "problems"
   add_foreign_key "writing_conversations", "users"
   add_foreign_key "writing_conversations", "writings"

@@ -1,8 +1,12 @@
+<%# Word Formation %>
 <%= render @word_formation %>
 
 <div>
-  <%= link_to "Edit this word formation", edit_word_formation_path(@word_formation) %> |
-  <%= link_to "Back to word formations", word_formations_path %>
+    <%# Edit Link %>
+    <%= link_to "Edit this word formation", edit_word_formation_path(@word_formation) %> |
+    <%# Return Link %>
+    <%= link_to "Back to word formations", word_formations_path %>
 
-  <%= button_to "Destroy this word formation", @word_formation, method: :delete %>
+    <%# Destroy Button %>
+    <%= button_to "Destroy this word formation", @word_formation, method: :delete %>
 </div>

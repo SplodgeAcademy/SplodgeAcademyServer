@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Articles</h1>
+
+    <div id="articles">
+        <% @articles.each do |article| %>
+            <%# Article %>
+            <%= render article %>
+
+            <%# Link to Article %>
+            <p><%= link_to "Show this article", article %></p>
+        <% end %>
+    </div>
+
+    <%# New Article %>
+    <%= link_to "New article", new_article_path %>
+</div>

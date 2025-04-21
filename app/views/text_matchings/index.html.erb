@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Text matchings</h1>
+
+    <div id="text_matchings">
+        <% @text_matchings.each do |text_matching| %>
+            <%# Text Matching %>
+            <%= render text_matching %>
+
+            <%# Link to Text Matching %>
+            <p><%= link_to "Show this text matching", text_matching %></p>
+        <% end %>
+    </div>
+
+    <%# New Text Matching %>
+    <%= link_to "New text matching", new_text_matching_path %>
+</div>

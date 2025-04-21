@@ -1,0 +1,73 @@
+<%= form_with(model: text_missing) do |form| %>
+    <%# Handles errors %>
+    <% if text_missing.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(text_missing.errors.count, "error") %> prohibited this text_missing from being saved:</h2>
+
+            <ul>
+                <% text_missing.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Title Input %>
+    <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+    </div>
+
+    <%# Option A Input %>
+    <div>
+        <%= form.label "Option A", style: "display: block" %>
+        <%= form.text_field :optionA %>
+    </div>
+
+    <%# Option B Input %>
+    <div>
+        <%= form.label "Option B", style: "display: block" %>
+        <%= form.text_field :optionB %>
+    </div>
+
+    <%# Option C Input %>
+    <div>
+        <%= form.label "Option C", style: "display: block" %>
+        <%= form.text_field :optionC %>
+    </div>
+
+    <%# Option D Input %>
+    <div>
+        <%= form.label "Option D", style: "display: block" %>
+        <%= form.text_field :optionD %>
+    </div>
+
+    <%# Option E Input %>
+    <div>
+        <%= form.label "Option E", style: "display: block" %>
+        <%= form.text_field :optionE %>
+    </div>
+
+    <%# Option F Input %>
+    <div>
+        <%= form.label "Option F", style: "display: block" %>
+        <%= form.text_field :optionF %>
+    </div>
+
+    <%# Option G Input %>
+    <div>
+        <%= form.label "Option G", style: "display: block" %>
+        <%= form.text_field :optionG %>
+    </div>
+
+    <%# Body Input %>
+    <div>
+        <%= form.label :body, style: "display: block" %>
+        <%= form.textarea :body %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

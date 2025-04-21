@@ -1,0 +1,11 @@
+<div class="container">
+    <%# Heading %>
+    <h1>New article</h1>
+
+    <%# New Article Form %>
+    <%= render "form", article: @article %>
+    <br>
+
+    <%# Link to return to Articles %>
+    <div><%= link_to "Back to articles", articles_path %></div>
+</div>

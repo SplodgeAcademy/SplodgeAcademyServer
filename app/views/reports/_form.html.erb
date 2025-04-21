@@ -1,0 +1,31 @@
+<%= form_with(model: report) do |form| %>
+    <%# Handles errors %>
+    <% if report.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+            <ul>
+                <% report.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%# Situation Input %>
+    <div>
+        <%= form.label :situation, style: "display: block" %>
+        <%= form.textarea :situation %>
+    </div>
+
+    <%# Task Input %>
+    <div>
+        <%= form.label :task, style: "display: block" %>
+        <%= form.textarea :task %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

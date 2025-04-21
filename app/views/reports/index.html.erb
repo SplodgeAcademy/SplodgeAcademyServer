@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Reports</h1>
+
+    <div id="reports">
+        <% @reports.each do |report| %>
+            <%# Report %>
+            <%= render report %>
+
+            <%# Link to Report %>
+            <p><%= link_to "Show this report", report %></p>
+        <% end %>
+    </div>
+
+    <%# New Report %>
+    <%= link_to "New report", new_report_path %>
+</div>

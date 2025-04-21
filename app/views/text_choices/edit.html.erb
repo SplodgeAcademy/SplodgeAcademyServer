@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing text choice</h1>
+
+    <%# Edit Text Choice Form %>
+    <%= render "form", text_choice: @text_choice %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this text choice", @text_choice %> |
+        <%= link_to "Back to text choices", text_choices_path %>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<%= form_with(model: text_matching) do |form| %>
+    <%# Handles errors %>
+    <% if text_matching.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(text_matching.errors.count, "error") %> prohibited this text_matching from being saved:</h2>
+
+          <ul>
+              <% text_matching.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+              <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%# Title Input %>
+    <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+    </div>
+
+    <%# Para 1 Input %>
+    <div>
+        <%= form.label :para1, style: "display: block" %>
+        <%= form.textarea :para1 %>
+    </div>
+
+    <%# Para 2 Input %>
+    <div>
+        <%= form.label :para2, style: "display: block" %>
+        <%= form.textarea :para2 %>
+    </div>
+
+    <%# Para 3 Input %>
+    <div>
+        <%= form.label :para3, style: "display: block" %>
+        <%= form.textarea :para3 %>
+    </div>
+
+    <%# Para 4 Input %>
+    <div>
+        <%= form.label :para4, style: "display: block" %>
+        <%= form.textarea :para4 %>
+    </div>
+
+    <%# Subtitle 1 Input %>
+    <div>
+        <%= form.label :sub1, style: "display: block" %>
+        <%= form.text_field :sub1 %>
+    </div>
+
+    <%# Subtitle 2 Input %>
+    <div>
+        <%= form.label :sub2, style: "display: block" %>
+        <%= form.text_field :sub2 %>
+    </div>
+
+    <%# Subtitle 3 Input %>
+    <div>
+        <%= form.label :sub3, style: "display: block" %>
+        <%= form.text_field :sub3 %>
+    </div>
+
+    <%# Subtitle 4 Input %>
+    <div>
+        <%= form.label :sub4, style: "display: block" %>
+        <%= form.text_field :sub4 %>
+    </div>
+
+    <%# Submmit Button %>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

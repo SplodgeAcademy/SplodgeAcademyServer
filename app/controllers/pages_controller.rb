@@ -15,4 +15,13 @@ class PagesController < ApplicationController
 
     def problems
     end
+
+    def listenings
+    end
+
+    def readings
+    end
+
+    def prompts
+    end
 end

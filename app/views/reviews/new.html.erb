@@ -1,0 +1,11 @@
+<div class="container">
+    <%# Heading %>
+    <h1>New review</h1>
+
+    <%# New Review Form %>
+    <%= render "form", review: @review %>
+    <br>
+
+    <%# Link to return to Reviews %>
+    <div><%= link_to "Back to reviews", reviews_path %></div>
+</div>

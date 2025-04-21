@@ -1,8 +1,12 @@
+<%# Open Cloze %>
 <%= render @open_cloze %>
 
 <div>
-  <%= link_to "Edit this open cloze", edit_open_cloze_path(@open_cloze) %> |
-  <%= link_to "Back to open clozes", open_clozes_path %>
+    <%# Edit Link %>
+    <%= link_to "Edit this open cloze", edit_open_cloze_path(@open_cloze) %> |
+    <%# Return Link %>
+    <%= link_to "Back to open clozes", open_clozes_path %>
 
-  <%= button_to "Destroy this open cloze", @open_cloze, method: :delete %>
+    <%# Destroy Button %>
+    <%= button_to "Destroy this open cloze", @open_cloze, method: :delete %>
 </div>

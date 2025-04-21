@@ -1,0 +1,11 @@
+<div class="container">
+    <%# Heading %>
+    <h1>New essay</h1>
+
+    <%# New Essay Form %>
+    <%= render "form", essay: @essay %>
+    <br>
+
+    <%# Link to return to Essays %>
+    <div><%= link_to "Back to essays", essays_path %></div>
+</div>

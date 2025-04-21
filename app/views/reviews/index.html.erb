@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Reviews</h1>
+
+    <div id="reviews">
+        <% @reviews.each do |review| %>
+            <%# Review %>
+            <%= render review %>
+
+            <%# Link to Review %>
+            <p><%= link_to "Show this review", review %></p>
+        <% end %>
+    </div>
+
+    <%# New Review %>
+    <%= link_to "New review", new_review_path %>
+</div>

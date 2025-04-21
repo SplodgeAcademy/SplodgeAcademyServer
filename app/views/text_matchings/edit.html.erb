@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing text matching</h1>
+
+    <%# Edit Text Matching Form %>
+    <%= render "form", text_matching: @text_matching %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this text matching", @text_matching %> |
+        <%= link_to "Back to text matchings", text_matchings_path %>
+    </div>
+</div>

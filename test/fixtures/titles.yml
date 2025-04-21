@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  para1: MyText
+  para2: MyText
+  para3: MyText
+  para4: MyText
+  subA: MyString
+  subB: MyString
+  subC: MyString
+  subD: MyString
+  reading: one
+
+two:
+  para1: MyText
+  para2: MyText
+  para3: MyText
+  para4: MyText
+  subA: MyString
+  subB: MyString
+  subC: MyString
+  subD: MyString
+  reading: two
