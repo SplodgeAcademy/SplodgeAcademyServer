@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing text missing</h1>
+
+    <%# Edit Text Missing Form %>
+    <%= render "form", text_missing: @text_missing %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this text missing", @text_missing %> |
+        <%= link_to "Back to text missings", text_missings_path %>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<%# Review %>
+<%= render @review %>
+
+<div>
+    <%# Edit Link %>
+    <%= link_to "Edit this review", edit_review_path(@review) %> |
+    <%# Return Link %>
+    <%= link_to "Back to reviews", reviews_path %>
+
+    <%# Destroy Button %>
+    <%= button_to "Destroy this review", @review, method: :delete %>
+</div>

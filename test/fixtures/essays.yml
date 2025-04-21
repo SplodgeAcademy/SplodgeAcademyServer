@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  situation: MyText
+  task: MyText
+  note1: MyString
+  note2: MyString
+  prompt: one
+
+two:
+  situation: MyText
+  task: MyText
+  note1: MyString
+  note2: MyString
+  prompt: two

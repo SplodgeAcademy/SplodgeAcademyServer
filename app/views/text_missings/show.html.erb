@@ -1,0 +1,12 @@
+<%# Text Missing %>
+<%= render @text_missing %>
+
+<div>
+    <%# Edit Link %>
+    <%= link_to "Edit this text missing", edit_text_missing_path(@text_missing) %> |
+    <%# Return Link %>
+    <%= link_to "Back to text missings", text_missings_path %>
+
+    <%# Destroy Button %>
+    <%= button_to "Destroy this text missing", @text_missing, method: :delete %>
+</div>

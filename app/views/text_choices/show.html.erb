@@ -1,0 +1,12 @@
+<%# Text Choice %>
+<%= render @text_choice %>
+
+<div>
+    <%# Edit Link %>
+    <%= link_to "Edit this text choice", edit_text_choice_path(@text_choice) %> |
+    <%# Return Link %>
+    <%= link_to "Back to text choices", text_choices_path %>
+
+    <%# Destroy Button %>
+    <%= button_to "Destroy this text choice", @text_choice, method: :delete %>
+</div>

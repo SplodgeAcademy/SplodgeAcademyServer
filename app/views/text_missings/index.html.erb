@@ -1,0 +1,17 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Text missings</h1>
+
+    <div id="text_missings">
+        <% @text_missings.each do |text_missing| %>
+            <%# Text Missing %>
+            <%= render text_missing %>
+
+            <%# Link to Text Missing %>
+            <p><%= link_to "Show this text missing", text_missing %></p>
+        <% end %>
+    </div>
+
+    <%# New Text Missing %>
+    <%= link_to "New text missing", new_text_missing_path %>
+</div>

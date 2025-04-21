@@ -1,0 +1,14 @@
+<div class="container">
+    <%# Heading %>
+    <h1>Editing essay</h1>
+
+    <%# Edit Essay Form %>
+    <%= render "form", essay: @essay %>
+    <br>
+
+    <%# Links %>
+    <div>
+        <%= link_to "Show this essay", @essay %> |
+        <%= link_to "Back to essays", essays_path %>
+    </div>
+</div>

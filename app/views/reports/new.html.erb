@@ -1,0 +1,11 @@
+<div class="container">
+    <%# Heading %>
+    <h1>New report</h1>
+
+    <%# New Report Form %>
+    <%= render "form", report: @report %>
+    <br>
+
+    <%# Link to return to Reports %>
+    <div><%= link_to "Back to reports", reports_path %></div>
+</div>

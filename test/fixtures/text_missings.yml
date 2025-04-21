@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  optionA: MyString
+  optionB: MyString
+  optionC: MyString
+  optionD: MyString
+  optionE: MyString
+  optionF: MyString
+  optionG: MyString
+  body: MyText
+  reading: one
+
+two:
+  title: MyString
+  optionA: MyString
+  optionB: MyString
+  optionC: MyString
+  optionD: MyString
+  optionE: MyString
+  optionF: MyString
+  optionG: MyString
+  body: MyText
+  reading: two

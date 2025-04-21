@@ -21,12 +21,26 @@ Rails.application.routes.draw do
     get "/u/:id", to: "users#profile", as: "user"
     get "search", to: "search#index"
     get "problems", to: "pages#problems"
+    get "listenings", to: "pages#listenings"
+    get "readings", to: "pages#readings"
+    get "prompts", to: "pages#prompts"
 
-    # Problem Links
+    # Problem routes
     resources :word_formations
     resources :sentence_transformations
     resources :open_clozes
     resources :multiple_choices
+
+    # Prompt routes
+    resources :reports
+    resources :articles
+    resources :reviews
+    resources :essays
+    
+    # Reading routes
+    resources :text_matchings
+    resources :text_missings
+    resources :text_choices
 
     # Admin routes
     authenticated :user, ->(user) { user.admin? } do
