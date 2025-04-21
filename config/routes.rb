@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    resources :reading_questions
     # Set up doorkeeper for api user access
     use_doorkeeper
 

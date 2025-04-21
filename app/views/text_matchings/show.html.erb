@@ -1,12 +1,14 @@
-<%# Text Matching %>
-<%= render @text_matching %>
+<div class="container">
+    <%# Text Matching %>
+    <%= render @text_matching %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this text matching", edit_text_matching_path(@text_matching) %> |
-    <%# Return Link %>
-    <%= link_to "Back to text matchings", text_matchings_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this text matching", edit_text_matching_path(@text_matching) %> |
+        <%# Return Link %>
+        <%= link_to "Back to text matchings", text_matchings_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this text matching", @text_matching, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this text matching", @text_matching, method: :delete %>
+    </div>
 </div>

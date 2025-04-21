@@ -3,4 +3,6 @@ class Reading < ApplicationRecord
     has_one :text_choice
     has_one :text_missing
     has_one :text_matching
+
+    has_many :reading_questions
 end

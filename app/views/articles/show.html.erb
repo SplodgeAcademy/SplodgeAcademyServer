@@ -1,12 +1,14 @@
-<%# Article %>
-<%= render @article %>
+<div class="container">
+    <%# Article %>
+    <%= render @article %>
 
-<div>
-    <%# Edit Link %>
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-    <%# Return Link %>
-    <%= link_to "Back to articles", articles_path %>
+    <div>
+        <%# Edit Link %>
+        <%= link_to "Edit this article", edit_article_path(@article) %> |
+        <%# Return Link %>
+        <%= link_to "Back to articles", articles_path %>
 
-    <%# Destroy Button %>
-    <%= button_to "Destroy this article", @article, method: :delete %>
+        <%# Destroy Button %>
+        <%= button_to "Destroy this article", @article, method: :delete %>
+    </div>
 </div>
