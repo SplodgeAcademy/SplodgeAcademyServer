@@ -4,7 +4,7 @@ class WritingsController < ApplicationController
 
     # GET /writings or /writings.json
     def index
-        @writings = Writing.includes(:user, :rich_text_body).all.order(created_at: :desc)
+        @writings = Writing.includes(:user, :rich_text_body, :prompt).all.order(created_at: :desc)
     end
 
     # GET /writings/1 or /writings/1.json

@@ -11,9 +11,9 @@
         <%= article.task %>
     </p>
 
-    <%# Prompt %>
+    <%# Number of Writings %>
     <p>
-        <strong>Prompt:</strong>
-        <%= article.prompt_id %>
+        <strong>Number of Writings:</strong>
+        <%= pluralize(article.prompt.writings.size, "Writing") %>
     </p>
 </div>

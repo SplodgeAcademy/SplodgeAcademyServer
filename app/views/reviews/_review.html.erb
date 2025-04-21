@@ -11,9 +11,9 @@
         <%= review.task %>
     </p>
 
-    <%# Prompt %>
+    <%# Number of Writings %>
     <p>
-        <strong>Prompt:</strong>
-        <%= review.prompt_id %>
+        <strong>Number of Writings:</strong>
+        <%= pluralize(review.prompt.writings.size, "Writing") %>
     </p>
 </div>

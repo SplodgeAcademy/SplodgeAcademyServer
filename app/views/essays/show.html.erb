@@ -12,3 +12,10 @@
         <%= button_to "Destroy this essay", @essay, method: :delete %>
     </div>
 </div>
+
+<div class="container">
+    <%# Display all writings %>
+    <% @writings.each do |writing| %>
+        <%= render 'writings/writing', writing: writing %>
+    <% end %>
+</div>

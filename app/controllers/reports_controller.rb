@@ -3,11 +3,12 @@ class ReportsController < ApplicationController
 
     # GET /reports or /reports.json
     def index
-        @reports = Report.all
+        @reports = Report.all.includes([ :prompt ])
     end
 
     # GET /reports/1 or /reports/1.json
     def show
+        @writings = @report.prompt.writings.includes([ :rich_text_body, :user ])
     end
 
     # GET /reports/new
@@ -25,6 +26,7 @@ class ReportsController < ApplicationController
 
         # Create new prompt and associate it with new report
         @prompt = Prompt.new()
+        @prompt.prompt_type = Prompt.prompt_types[:report]
         @report.prompt = @prompt
 
         respond_to do |format|

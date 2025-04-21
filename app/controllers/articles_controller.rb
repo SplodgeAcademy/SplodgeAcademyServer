@@ -3,11 +3,12 @@ class ArticlesController < ApplicationController
 
     # GET /articles or /articles.json
     def index
-        @articles = Article.all
+        @articles = Article.all.includes([ :prompt ])
     end
 
     # GET /articles/1 or /articles/1.json
     def show
+        @writings = @article.prompt.writings.includes([ :rich_text_body, :user ])
     end
 
     # GET /articles/new
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
 
         # Create new prompt and associate it with new article
         @prompt = Prompt.new()
+        @prompt.prompt_type = Prompt.prompt_types[:article]
         @article.prompt = @prompt
 
         respond_to do |format|
