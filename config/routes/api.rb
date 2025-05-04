@@ -8,6 +8,12 @@ namespace :api do
         # Writing Routes
         resources :writings
 
+        # Problem Routes
+        resources :multiple_choices
+        resources :open_clozes
+        resources :sentence_transformations
+        resources :word_formations
+
         # User Routes
         get "/users/me", to: "users#me"
         put "users/updateInfo", to: "users#updateInfo"
