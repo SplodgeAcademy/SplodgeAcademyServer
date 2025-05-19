@@ -60,7 +60,7 @@ gem "devise"
 
 gem "doorkeeper", "~> 5.8"
 
-gem "rack-cors", "~> 2.0"
+gem "rack-cors", "~> 3.0"
 
 gem "ransack", "~> 4.3"
 
